@@ -1,0 +1,91 @@
+<header class="nxl-header">
+        <div class="header-wrapper">
+            <!--! [Start] Header Left !-->
+            <div class="header-left d-flex align-items-center gap-4">
+                <!--! [Start] nxl-head-mobile-toggler !-->
+                <a href="javascript:void(0);" class="nxl-head-mobile-toggler" id="mobile-collapse">
+                    <div class="hamburger hamburger--arrowturn">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </a>
+                <!--! [Start] nxl-head-mobile-toggler !-->
+                <!--! [Start] nxl-navigation-toggle !-->
+                <div class="nxl-navigation-toggle">
+                    <a href="javascript:void(0);" id="menu-mini-button">
+                        <i class="feather-align-left"></i>
+                    </a>
+                    <a href="javascript:void(0);" id="menu-expend-button" style="display: none">
+                        <i class="feather-arrow-right"></i>
+                    </a>
+                </div>
+                <!--! [End] nxl-navigation-toggle !-->
+
+            </div>
+            <!--! [End] Header Left !-->
+            <!--! [Start] Header Right !-->
+            <div class="header-right ms-auto">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown nxl-h-item nxl-header-search">
+                        <a href="javascript:void(0);" class="nxl-head-link me-0" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                            <i class="feather-search"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-search-dropdown">
+                            <form action="{{ url()->current() }}" method="GET" class="input-group search-form">
+    <span class="input-group-text">
+        <i class="feather-search fs-6 text-muted"></i>
+    </span>
+    <input type="text" name="search" class="form-control search-input-field" 
+           placeholder="Search...." value="{{ request('search') }}">
+    
+    <span class="input-group-text">
+        <button type="submit" class="btn-primary d-none">Cari</button>
+        <button type="button" class="btn-close" onclick="window.location.href='{{ url()->current() }}'"></button>
+    </span>
+</form>
+                        </div>
+                    </div>
+                    
+                    <div class="nxl-h-item dark-light-theme">
+                        <a href="javascript:void(0);" class="nxl-head-link me-0 dark-button">
+                            <i class="feather-moon"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="nxl-head-link me-0 light-button" style="display: none">
+                            <i class="feather-sun"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown nxl-h-item">
+                    </div>
+                    <div class="dropdown nxl-h-item">
+                        <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button" data-bs-auto-close="outside">
+                            <h6 class="text-dark mb-0">{{auth()->user()->name}} </h6>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown">
+                            <div class="dropdown-header">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h6 class="text-dark mb-0">{{auth()->user()->name}} <span class="badge bg-soft-success text-success ms-1">{{auth()->user()->role}}</span></h6>
+                                        <span class="fs-12 fw-medium text-muted">{{auth()->user()->email}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                            <a href="#" class="dropdown-item"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="feather-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--! [End] Header Right !-->
+        </div>
+    </header>
